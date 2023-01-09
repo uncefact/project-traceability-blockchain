@@ -1,0 +1,48 @@
+@import "src/utils/global";
+
+.Row {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  background-color: white;
+}
+.WalletContainer {
+  margin-top: 20px;
+}
+
+//@import "src/utils/global.scss";
+//
+//.Row {
+//  margin-right: 1rem;
+//  margin-left: 1rem;
+//  background-color: white;
+//  align-items: center;
+//
+//  text-align: left;
+//  display: grid;
+//  grid-template-columns: 1fr;
+//  grid-template-rows: auto;
+//  row-gap: 10px;
+//  grid-template-areas:
+//    "tradeTable"
+//    "inputMaterialTable"
+//;
+//
+//  .TradeTableArea {
+//    grid-area: tradeTable;
+//  }
+//  .InputMaterialTable {
+//    grid-area: inputMaterialTable;
+//  }
+//
+//}
+//.WalletContainer {
+//  margin-top: 20px;
+//}
+//
+//
+
+
+

@@ -1,0 +1,49 @@
+.Burger {
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  div {
+    width: 2rem;
+    height: 0.25rem;
+    background-color: #368EDE;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+  }
+}
+.transformOpen {
+  &:first-child {
+    transform: rotate(45deg);
+  }
+  &:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  &:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+}
+.transformClose {
+  &:first-child {
+    transform: rotate(0);
+  }
+  &:nth-child(2) {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  &:nth-child(3) {
+    transform: rotate(0);
+  }
+}

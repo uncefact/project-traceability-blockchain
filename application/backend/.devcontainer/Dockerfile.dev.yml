@@ -1,0 +1,6 @@
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.224.2/containers/java-8/.devcontainer/base.Dockerfile
+
+# [Choice] Debian OS version (use bullseye on local arm64/Apple Silicon): buster, bullseye
+FROM mcr.microsoft.com/vscode/devcontainers/java:0-8-bullseye
+
+RUN su vscode -c "umask 0002 && . /usr/local/sdkman/bin/sdkman-init.sh && sdk install maven \"${MAVEN_VERSION}\"";

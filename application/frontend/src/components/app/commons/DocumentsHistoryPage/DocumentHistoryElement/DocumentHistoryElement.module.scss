@@ -1,0 +1,82 @@
+.DocumentRowContent {
+  display: grid;
+  grid-template-columns: 3fr 2.5fr;
+  grid-column-gap: 10px;
+
+  .LeftSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .InfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+    position: relative;
+    //white-space: pre-wrap;
+    p {
+      text-align: left;
+    }
+  }
+  .DocumentContainer {
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .Document {
+    display: block;
+    height: 20rem;
+    width: 30rem;
+    border-radius: 5px;
+  }
+  .Image {
+    display: block;
+    height: 15rem;
+    width: auto;
+    border-radius: 5px;
+  }
+}
+.DocumentRow {
+  min-height: 12rem;
+  width: 70%;
+  margin: 20px auto auto;
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .Nav {
+    margin-bottom: 10px;
+    border-bottom: 0 !important;
+  }
+}
+.DownloadButton {
+  margin-top: 0 !important;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  background-color: #368EDE;
+  padding: .375rem;
+  color: white;
+  &:hover {
+    background-color: lighten(#368EDE, 10%);
+  }
+}
+@media (max-width: 1224px){
+  .DocumentRow {
+    width: 90%;
+  }
+  .DocumentRowContent{
+    grid-template-columns: 1fr;
+    .DocumentContainer {
+      display: none;
+    }
+  }
+
+}

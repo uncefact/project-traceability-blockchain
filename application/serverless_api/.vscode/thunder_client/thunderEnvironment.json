@@ -1,0 +1,36 @@
+[
+  {
+    "_id": "98fd7f20-7de1-4dcf-a3ff-c2aef565401e",
+    "name": "UNECE APIs Environment",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-06-15T12:37:15.053Z",
+    "modified": "2022-11-24T09:57:53.876Z",
+    "data": [
+      {
+        "name": "jwt_token",
+        "value": "eyJ0eXAiOiAiSldUIiwgImFsZyI6ICJSUzI1NiIsICJraWQiOiAiMWQ2MGQyMDY0YzA1MDM2ZTIxNWNkOTdmYzFiNGM5MDUwNzBhMjIxZSJ9.eyJpYXQiOiAxNjcxNTI5Nzc1LCAiZXhwIjogMTY3MTUzMzM3NSwgImlzcyI6ICJ1bmVjZS1hdXRoLW1hbmFnZXJAYWRyb2l0LW5pbWJ1cy0yNzUyMTQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCAiYXVkIjogInVuZWNlLWF1dGgtbWFuYWdlckBhZHJvaXQtbmltYnVzLTI3NTIxNC5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsICJzdWIiOiAidmFubmkiLCAiZW1haWwiOiAidW5lY2UtYXV0aC1tYW5hZ2VyQGFkcm9pdC1uaW1idXMtMjc1MjE0LmlhbS5nc2VydmljZWFjY291bnQuY29tIn0.uUv2eAoPg71Oz-bh14GdANCGzZh698h_OMe2jhb59aF-85zXkqVZKfKmFVwlG0ynLrXLKXOz5G1Ck3mTctT3lxCez1bWwWjr2aoDHBgYZ7vHDmdETCO3QT3c1C3Z_bpKNs_jSTx5QeMC7IHBrjOBXF67BIyH6l1ukDFr2Vqk6T7qOZ_fWmiybJ9mweoERbnfm7WImDnvBdSdPx6FVpg5vcjGwfKfwjz_brRgj5YEI5-dSXy87EBVPgETAu8k6Cy-OZ5HLHS02VA_YJgJ7vJP6Klxecz1Czx6F3zcJjVdmmOFmFwoV7yj0p9xggp_KO-eJstonmQO_8Wf-oTyKpiLgQ"
+      },
+      {
+        "name": "api_gateway_jwt_payload",
+        "value": "eyJpYXQiOiAxNjY5NzE3NzY5LCAiZXhwIjogMTY2OTcyMTM2OSwgImlzcyI6ICJ1bmVjZS1hdXRoLW1hbmFnZXJAYWRyb2l0LW5pbWJ1cy0yNzUyMTQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCAiYXVkIjogInVuZWNlLWF1dGgtbWFuYWdlckBhZHJvaXQtbmltYnVzLTI3NTIxNC5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsICJzdWIiOiAidmFubmkiLCAiZW1haWwiOiAidW5lY2UtYXV0aC1tYW5hZ2VyQGFkcm9pdC1uaW1idXMtMjc1MjE0LmlhbS5nc2VydmljZWFjY291bnQuY29tIn0"
+      },
+      {
+        "name": "backend_url",
+        "value": "https://api-gateway-8ot0fprs.ew.gateway.dev/api"
+      },
+      {
+        "name": "eventID_transformationEvent",
+        "value": "tMkAFAoPtKT"
+      },
+      {
+        "name": "eventID_objectEvent",
+        "value": "F9s5Zf9bGOim20WeJcJdZ"
+      },
+      {
+        "name": "eventID_transactionEvent",
+        "value": "ThcRZB9Ygc0"
+      }
+    ]
+  }
+]

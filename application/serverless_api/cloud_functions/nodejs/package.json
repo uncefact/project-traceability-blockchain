@@ -1,0 +1,39 @@
+{
+  "name": "cloud_functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ts-built/index.js",
+  "scripts": {
+    "gcp-build": "npm run build",
+    "build": "tsc",
+    "start": "npm run build && export ENV_IS_LOCAL=true && sh -c 'npx @google-cloud/functions-framework --target=$0 --port=8085'",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/secret-manager": "^4.0.0",
+    "@blockchain-lib/supply-chain-mgmt": "^1.0.12",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.5.4",
+    "jest-express": "^1.12.0",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^3.1.2",
+    "@types/jest": "^26.0.15",
+    "jest-ts-auto-mock": "^2.1.0",
+    "ts-auto-mock": "^3.6.2",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^10.8.1",
+    "ttypescript": "^1.5.13",
+    "typescript": "^4.7.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/index.tsx",
+      "!src/reportWebVitals.ts"
+    ]
+  }
+}

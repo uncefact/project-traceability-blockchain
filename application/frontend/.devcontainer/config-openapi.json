@@ -1,0 +1,7 @@
+{
+  "npmName": "@unece/cotton-fetch",
+  "npmVersion": "1.0.0",
+  "snapshot" : false,
+  "supportsES6": true,
+  "typescriptThreePlus": true
+}

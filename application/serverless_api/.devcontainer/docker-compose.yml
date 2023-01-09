@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  unece-cloud-functions:
+    platform: linux/x86_64
+    container_name: "unece-cloud-functions"
+    build:
+      dockerfile: "Dockerfile.dev.yml"
+      context: .
+    volumes:
+      - ../..:/unece-cotton:cached
+      - ../../../blockchain-library:/bclib:cached
+    ports:
+      - 8080:8080
+    command: sleep infinity

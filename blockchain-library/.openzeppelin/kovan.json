@@ -1,0 +1,853 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x715E34d1B5e654E3A0188d4f55492118DCAD6EE9",
+    "txHash": "0x8208250e29f37cbb6dbec0576e661cf98a8d73fbb7ed724868ba91794d1a63d5"
+  },
+  "proxies": [
+    {
+      "address": "0xA4cE66B5A4D01028deb8e4Bf5e1a959F3c32d9Cd",
+      "txHash": "0x60adf90bafd139d4d11ec07454c5bdc917694e7ac154bb4fc495525ed3bef8ba",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6d364c6fb2fe7d29C05c61660bef6fb4926638bA",
+      "txHash": "0xfc208387c43d82c75c71ab060fc8ac5c679e2057fb78a49f8f27b559c761e520",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xc0F809FB89a06725B7783F46CB6307326fe405a0",
+      "txHash": "0x6814b4ce85d4adca70582aa26bb7e7b47411c094357415bbd51c1a2f4c6b487a",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xd92Fe9E32D545b56E49129FfE6156870c2F57F36",
+      "txHash": "0x8b7c24ec5179d9428e58ebd2a645067efd55ce9613f62e7b574c4a721928a973",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x8B64278Bb8117C009F05D6f6b481B4f400f0F6c7",
+      "txHash": "0x0003f705aa1e46cadb239a1f9aecca4dad17bd326fb83fe839f3f24c8cbab239",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x1909EF45709D67D960D41991ab8a56cf06058Bb5",
+      "txHash": "0x223395be8e2c5a1fa599d7fc6ee8425d12038dfcba98d1f0fa2d7a1d6ec11b00",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x3315275c7ee07cDb0BCeAb5fCb0862e6e577B50c",
+      "txHash": "0x8ce9e07cfb27160f8e5f2bd3827c7d23c47629bba2a81384b3c9685f5d8b4961",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xff55053EBB43732071c5302fad599B1c0AB0A65e",
+      "txHash": "0xb7fca56ab34e7fde6cee85495b55d0274c4ae392646e4d1748729969107ba5c2",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x1e81a46DF2f56CE0565504838ee15504dbb3CF1B",
+      "txHash": "0x3a8c3fc9caf47a25ec9957f0b71e36845f5fac94c8579accb88a96796376f4b3",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xC38F8484718Bfd959EF6CDe815c2056de9623b6c",
+      "txHash": "0x666c53f9bf39fe4ac14870a28a19cad7c5b1052f666127969498e9d102737679",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9356701cb5a57baB2975D3a3595c892AfAF32abB",
+      "txHash": "0xb23a958474529d2850c292565725f7bd1894e85cb8407bf2daf012579549ea35",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xE22397F16F07638d2c5daA90a8eFbdb47D5cC020",
+      "txHash": "0x8b9375f788561bb8d4e23fea9ac5e2b12e8d7d939affd1aea5a5fdd3a9328cf8",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x7d6fDEb959eA01037acb8E0C337d33f3d4df8738",
+      "txHash": "0xfc790584ef779c0e8b1dc75b8c748818985d4a047571e3abc4892c4f7e6beeba",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xA72218AA98AE2497457FE55750BdAEBa5E95352C",
+      "txHash": "0x6bff780fba5739e4790f3018a08024fcefe2a311e0ba684f9b7c12feeb396bc5",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xF903301Fc2Fc85efe7c74394D3FbFA1785bcfD5A",
+      "txHash": "0xac93bbff070768d40dd8316ded16044605860275e3a608faf1ee845f50917445",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x165d7e41267047b78be3c14576bE81D5cf32471d",
+      "txHash": "0xd6d984e3ab60f97117ace255c068732479bef4723bc3535519d8fe62147f620b",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "9345168a68c11a7aff6d5f7b32cb926776e0ba77ef29d91e9d43f347fb2948ca": {
+      "address": "0x6761aC94F4E08DFC9211e78342a5cD3a82B27A80",
+      "txHash": "0xa0af3e6723b5bbcb106511070cee41ab7598df7ea134ca49c13716b6e39fb2b8",
+      "layout": {
+        "storage": [
+          {
+            "label": "materials_map",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_mapping(t_uint256,t_struct(Material)11461_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:69"
+          },
+          {
+            "label": "trades_map",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_uint256,t_struct(Trade)11473_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:71"
+          },
+          {
+            "label": "transformations_map",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_mapping(t_uint256,t_struct(Transformation)11485_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:73"
+          },
+          {
+            "label": "certificates_map",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_mapping(t_uint256,t_struct(Certificate)11492_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:75"
+          },
+          {
+            "label": "materials_indexing",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)11454_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:82"
+          },
+          {
+            "label": "trades_indexing",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)11454_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:85"
+          },
+          {
+            "label": "transformations_indexing",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)11454_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:88"
+          },
+          {
+            "label": "certificates_indexing",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)11454_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:91"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_array(t_uint256)2_storage)dyn_storage": {
+            "label": "uint256[2][]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Index)11454_storage)dyn_storage": {
+            "label": "struct Index[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)2_storage": {
+            "label": "uint256[2]",
+            "numberOfBytes": "64"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_array(t_struct(Index)11454_storage)dyn_storage)": {
+            "label": "mapping(address => struct Index[])",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Certificate)11492_storage)": {
+            "label": "mapping(uint256 => struct Certificate)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Material)11461_storage)": {
+            "label": "mapping(uint256 => struct Material)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Trade)11473_storage)": {
+            "label": "mapping(uint256 => struct Trade)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Transformation)11485_storage)": {
+            "label": "mapping(uint256 => struct Transformation)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Certificate)11492_storage": {
+            "label": "struct Certificate",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_struct(Index)11454_storage": {
+            "label": "struct Index",
+            "members": [
+              {
+                "label": "encrypted_symmetric_key",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "encrypted_id",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_struct(Material)11461_storage": {
+            "label": "struct Material",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_struct(Trade)11473_storage": {
+            "label": "struct Trade",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "materials_ids",
+                "type": "t_array(t_array(t_uint256)2_storage)dyn_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
+          "t_struct(Transformation)11485_storage": {
+            "label": "struct Transformation",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "materials_in_ids",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "material_out_id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "4"
+              }
+            ],
+            "numberOfBytes": "160"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "5ce270e217fd05b09b206195ff2d210a4eb96bc2c0692e0e7a3980829b05aef5": {
+      "address": "0x72B4422d858532f7F3c54935Cb43d419f9665A43",
+      "txHash": "0xcc15c8f71f9f445094f4082a6e832436aa3b2978725aad17cddd67dc070221e5",
+      "layout": {
+        "storage": [
+          {
+            "label": "materials_map",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_mapping(t_uint256,t_struct(Material)8079_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:69"
+          },
+          {
+            "label": "trades_map",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_uint256,t_struct(Trade)8091_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:71"
+          },
+          {
+            "label": "transformations_map",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_mapping(t_uint256,t_struct(Transformation)8103_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:73"
+          },
+          {
+            "label": "certificates_map",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_mapping(t_uint256,t_struct(Certificate)8110_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:75"
+          },
+          {
+            "label": "materials_indexing",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)8072_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:82"
+          },
+          {
+            "label": "trades_indexing",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)8072_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:85"
+          },
+          {
+            "label": "transformations_indexing",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)8072_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:88"
+          },
+          {
+            "label": "certificates_indexing",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)8072_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:91"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_array(t_uint256)2_storage)dyn_storage": {
+            "label": "uint256[2][]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Index)8072_storage)dyn_storage": {
+            "label": "struct Index[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)2_storage": {
+            "label": "uint256[2]",
+            "numberOfBytes": "64"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_array(t_struct(Index)8072_storage)dyn_storage)": {
+            "label": "mapping(address => struct Index[])",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Certificate)8110_storage)": {
+            "label": "mapping(uint256 => struct Certificate)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Material)8079_storage)": {
+            "label": "mapping(uint256 => struct Material)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Trade)8091_storage)": {
+            "label": "mapping(uint256 => struct Trade)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Transformation)8103_storage)": {
+            "label": "mapping(uint256 => struct Transformation)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Certificate)8110_storage": {
+            "label": "struct Certificate",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_struct(Index)8072_storage": {
+            "label": "struct Index",
+            "members": [
+              {
+                "label": "encrypted_symmetric_key",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "encrypted_id",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_struct(Material)8079_storage": {
+            "label": "struct Material",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_struct(Trade)8091_storage": {
+            "label": "struct Trade",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "materials_ids",
+                "type": "t_array(t_array(t_uint256)2_storage)dyn_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
+          "t_struct(Transformation)8103_storage": {
+            "label": "struct Transformation",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "materials_in_ids",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "material_out_id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "4"
+              }
+            ],
+            "numberOfBytes": "160"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "4f174aa8f7791cbeff8418abed9494672768ffb798e78a20b51fd2004f67e339": {
+      "address": "0x4E0F3a1c843B593120492a36C2C572725363F49A",
+      "txHash": "0x0897c8992d9bfa4c6821f6c8a1ceab6ff3b5ecdd0eb0b6a71afb2e73a420d419",
+      "layout": {
+        "storage": [
+          {
+            "label": "materials_map",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_mapping(t_string_memory_ptr,t_struct(Material)8079_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:69"
+          },
+          {
+            "label": "trades_map",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_string_memory_ptr,t_struct(Trade)8091_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:71"
+          },
+          {
+            "label": "transformations_map",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_mapping(t_string_memory_ptr,t_struct(Transformation)8103_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:73"
+          },
+          {
+            "label": "certificates_map",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_mapping(t_string_memory_ptr,t_struct(Certificate)8110_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:75"
+          },
+          {
+            "label": "materials_indexing",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)8072_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:82"
+          },
+          {
+            "label": "trades_indexing",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)8072_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:85"
+          },
+          {
+            "label": "transformations_indexing",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)8072_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:88"
+          },
+          {
+            "label": "certificates_indexing",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_address,t_array(t_struct(Index)8072_storage)dyn_storage)",
+            "contract": "UneceCottonTracking",
+            "src": "supply-chain-mgmt/contracts/UneceCottonTracking.sol:91"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_array(t_string_storage)2_storage)dyn_storage": {
+            "label": "string[2][]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_string_storage)2_storage": {
+            "label": "string[2]",
+            "numberOfBytes": "64"
+          },
+          "t_array(t_string_storage)dyn_storage": {
+            "label": "string[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Index)8072_storage)dyn_storage": {
+            "label": "struct Index[]",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_array(t_struct(Index)8072_storage)dyn_storage)": {
+            "label": "mapping(address => struct Index[])",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_struct(Certificate)8110_storage)": {
+            "label": "mapping(string => struct Certificate)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_struct(Material)8079_storage)": {
+            "label": "mapping(string => struct Material)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_struct(Trade)8091_storage)": {
+            "label": "mapping(string => struct Trade)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_struct(Transformation)8103_storage)": {
+            "label": "mapping(string => struct Transformation)",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Certificate)8110_storage": {
+            "label": "struct Certificate",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_struct(Index)8072_storage": {
+            "label": "struct Index",
+            "members": [
+              {
+                "label": "encrypted_symmetric_key",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "encrypted_id",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_struct(Material)8079_storage": {
+            "label": "struct Material",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_struct(Trade)8091_storage": {
+            "label": "struct Trade",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "materials_ids",
+                "type": "t_array(t_array(t_string_storage)2_storage)dyn_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
+          "t_struct(Transformation)8103_storage": {
+            "label": "struct Transformation",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "materials_in_ids",
+                "type": "t_array(t_string_storage)dyn_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "material_out_id",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "encrypted_data",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "4"
+              }
+            ],
+            "numberOfBytes": "160"
+          }
+        }
+      }
+    }
+  }
+}

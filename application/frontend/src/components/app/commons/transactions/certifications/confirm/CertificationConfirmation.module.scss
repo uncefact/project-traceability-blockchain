@@ -1,0 +1,174 @@
+@import "src/utils/global";
+//@import '~@react-pdf-viewer/core/lib/styles/index.css';
+
+.Container {
+  width: 95%;;
+  margin: 0 auto;
+  //float: left;
+  h2 {
+    text-align: left;
+    padding-bottom: 20px;
+  }
+}
+
+.List {
+  background-color: rgba(0,0,0,0) !important;
+  color: #1c1c1c !important;
+}
+
+.Form {
+  margin: auto;
+  text-align: left;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  row-gap: 5px;
+  grid-template-areas:
+    "contractorName doc"
+    "contractorEmail certificationProcessingStandard"
+    "consignee docPreview"
+    "notes docPreview"
+    "assessmentType assessmentType"
+    "productCategories productCategories"
+    "outputMaterials outputMaterials"
+    "processTypes processTypes"
+    "shippingRefNumber shippingRefNumber"
+    "validFrom validUntil"
+    "consigneeRefNumber contractorRefNumber"
+    "confirm confirm"
+  ;
+  label {
+    font-weight: bold !important;
+    font-size: 22px;
+  }
+
+  .ContractorNameArea {
+    grid-area: contractorName;
+  }
+  .ContractorEmailArea {
+    grid-area: contractorEmail;
+  }
+  .ConsigneeArea {
+    grid-area: consignee;
+  }
+
+  .DocumentPreviewArea {
+    grid-area: docPreview;
+    justify-items: center;
+    //margin: 0 auto 0 auto;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 10% 70% 10%;
+    grid-template-rows: auto;
+    grid-template-areas:
+      ". preview download"
+    ;
+    .Preview {
+      grid-area: preview;
+      height: 700px;
+      width: 100%;
+      text-align: center;
+    }
+    .Download {
+      grid-area: download;
+      align-self: center;
+      cursor: pointer;
+    }
+    .DownloadText {
+      display: none;
+    }
+  }
+
+  .DocumentArea {
+    grid-area: doc;
+  }
+  .NotesArea {
+    grid-area: notes;
+  }
+  .Material {
+    grid-area: contractorRefNumber;
+  }
+  .ConsigneeRefNumberArea {
+    grid-area: consigneeRefNumber;
+  }
+  .ValidFromArea {
+    grid-area: validFrom;
+  }
+  .ValidUntilArea {
+    grid-area: validUntil;
+  }
+  .CertificationProcessingStandardArea {
+    grid-area: certificationProcessingStandard;
+  }
+  .AssessmentTypeArea {
+    grid-area: assessmentType;
+  }
+  .ProductCategoriesArea {
+    grid-area: productCategories;
+  }
+  .OutputMaterialsArea {
+    grid-area: outputMaterials;
+  }
+  .ProcessTypesArea {
+    grid-area: processTypes;
+  }
+  .ShippingRefNumberArea {
+    grid-area: shippingRefNumber;
+  }
+
+  .ConfirmArea {
+    grid-area: confirm;
+    text-align: left;
+  }
+
+}
+
+img {
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  .Container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1224px) {
+  .Form {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "contractorName"
+    "contractorEmail"
+    "consignee"
+    "doc"
+    "docPreview"
+    "certificationProcessingStandard"
+    "notes"
+    "assessmentType"
+    "productCategories"
+    "outputMaterials"
+    "processTypes"
+    "shippingRefNumber"
+    "validFrom"
+    "validUntil"
+    "consigneeRefNumber"
+    "contractorRefNumber"
+    "confirm"
+  ;
+    .DocumentPreviewArea {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+      "download";
+
+      .Preview {
+        display: none;
+      }
+      .DownloadText {
+        display: block;
+      }
+    }
+
+  }
+}

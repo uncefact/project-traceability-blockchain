@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  unece_cotton_backend:
+    image: gitlab.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:dev
+    restart: always
+    depends_on:
+      - unece_cotton_mysql
+    volumes:
+      - ./data/app/:/data/
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+    networks:
+      - frontend
+
+  unece_cotton_frontend:
+    image: gitlab.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:dev
+    restart: always
+    depends_on:
+      - unece_cotton_backend
+    ports:
+      - "13000:80"
+    networks:
+      - frontend
+
+  unece_cotton_mysql:
+    image: mysql:5.7
+    restart: always
+    command: --max_allowed_packet=20971520
+    environment:
+      MYSQL_DATABASE: unece_tracking
+      MYSQL_ROOT_PASSWORD: Xview_2020
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - ./data/mysql/:/var/lib/mysql/
+    ports:
+      - "13306:3306"
+    networks:
+      - frontend
+
+  watchtower:
+    image: containrrr/watchtower
+    environment:
+      - WATCHTOWER_DEBUG=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/xviewtest2020/.docker/config.json:/config.json
+    command: --interval 300
+
+networks:
+  frontend:

@@ -1,0 +1,24 @@
+{
+    "name": "Unece Frontend",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "unece-frontend",
+    "workspaceFolder": "/frontend",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/frontend,type=bind,consistency=cached",
+
+    "settings": {
+      "terminal.integrated.profiles.linux": {
+        "bash": {
+          "path": "bash",
+          "icon": "terminal-bash"
+        }
+      },
+      ""
+    },
+    "extensions": [
+      "eg2.vscode-npm-script",
+      "dbaeumer.vscode-eslint",
+      "visualstudioexptteam.vscodeintellicode"
+    ],
+
+    "postCreateCommand": "dos2unix /frontend/.devcontainer/start-venv.sh && /frontend/.devcontainer/start-venv.sh"
+  }

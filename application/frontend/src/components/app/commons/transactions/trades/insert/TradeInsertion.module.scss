@@ -1,0 +1,185 @@
+@import "src/utils/global";
+
+.Container {
+  width: 95%;
+  margin: 0 auto;
+  h2 {
+    text-align: left;
+    padding-bottom: 20px;
+  }
+}
+
+.Form {
+  margin: auto;
+  text-align: left;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  row-gap: 5px;
+  grid-template-areas:
+    "buyerName buyerInfo"
+    "userEmail userInfo"
+    "docType doc"
+    "validFrom validUntil"
+    "refStandard refStandard"
+    "uniqueTradeReference uniqueTradeReference"
+    "tradeReference parentTradeReference"
+    "notes notes"
+    "positions positions"
+    "confirm confirm"
+;
+  label {
+    font-weight: bold !important;
+    font-size: 22px;
+  }
+
+  .BuyerNameArea {
+    grid-area: buyerName;
+  }
+  .BuyerInfoArea {
+    grid-area: buyerInfo;
+  }
+  .UserEmailArea {
+    grid-area: userEmail;
+  }
+  .UserInfoArea {
+    grid-area: userInfo;
+  }
+  .DocumentTypeArea {
+    grid-area: docType;
+  }
+  .DocumentArea {
+    grid-area: doc;
+  }
+  .ValidFromArea {
+    grid-area: validFrom;
+  }
+  .ValidUntilArea {
+    grid-area: validUntil;
+  }
+  .ReferencedStandardArea {
+    grid-area: refStandard;
+  }
+  .UniqueTradeReference {
+    grid-area: uniqueTradeReference;
+  }
+  .TradeReferenceArea {
+    grid-area: tradeReference;
+  }
+  .ParentTradeReferenceArea {
+    grid-area: parentTradeReference;
+  }
+  .NotesArea {
+    grid-area: notes;
+  }
+
+  .PositionsContainer {
+    grid-area: positions;
+
+    .PositionsTitleArea{
+      width: 100%;
+
+      .AddPosition {
+        border-radius: 20px !important;
+        margin-left: 0.5rem;
+      }
+
+    }
+    .PositionsArea {
+      display: grid;
+      padding: 15px;
+      grid-column-gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+      "material material"
+      "consigneeMaterial contractorMaterial"
+      "positionInfo positionInfo";
+
+      .MaterialArea {
+        grid-area: material;
+      }
+
+      .PositionInfoArea {
+        grid-area: positionInfo;
+        display: grid;
+        grid-column-gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "quantity unit weight"
+        "description description description"
+      ;
+        .QuantityArea {
+          grid-area: quantity;
+        }
+        .UnitArea {
+          grid-area: unit;
+        }
+        .SquareMetersArea {
+          grid-area: weight;
+        }
+        .DescriptionArea {
+          grid-area: description;
+        }
+      }
+    }
+  }
+
+  .ConfirmArea {
+    grid-area: confirm;
+    text-align: left;
+  }
+
+}
+
+@media (max-width: 1224px) {
+  .Form {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "buyerName"
+    "buyerInfo"
+    "userEmail"
+    "userInfo"
+    "docType"
+    "doc"
+    "validFrom"
+    "validUntil"
+    "refStandard"
+    "uniqueTradeReference"
+    "tradeReference"
+    "parentTradeReference"
+    "notes"
+    "positions"
+    "confirm"
+  ;
+
+    .PositionsContainer {
+      .PositionsArea {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "material"
+        "consigneeMaterial"
+        "contractorMaterial"
+        "positionInfo";
+
+        .PositionInfoArea {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+          "quantity"
+          "unit"
+          "weight"
+          "description";
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 768px) {
+  .Container {
+    width: 100%;
+  }
+}

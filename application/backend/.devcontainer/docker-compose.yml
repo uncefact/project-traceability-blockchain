@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  unece-backend:
+    container_name: "unece-backend"
+    build:
+      dockerfile: "Dockerfile.dev.yml"
+      context: .
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    network_mode: service:unece-mysql
+
+  unece-mysql:
+    platform: linux/x86_64
+    container_name: "unece-mysql"
+    image: mysql:5.7
+    command: --max_allowed_packet=20971520
+    environment:
+      MYSQL_DATABASE: unece_tracking
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"

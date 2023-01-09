@@ -1,0 +1,35 @@
+FROM node:16-stretch
+
+# update
+RUN apt-get -qq update
+
+# VSCode DevContainer stuff
+RUN apt-get -qq install git net-tools dos2unix
+
+# Bash
+RUN apt-get -qq install bash
+
+# Build Essentials
+RUN apt-get -qq install build-essential
+
+# VSCode Live Share in DevContainers
+RUN wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script && chmod +x ~/vsls-reqs && ~/vsls-reqs
+
+# Install Gcloud CLI
+RUN curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-385.0.0-linux-x86_64.tar.gz
+RUN tar -xf google-cloud-cli-385.0.0-linux-x86_64.tar.gz
+RUN CLOUDSDK_CORE_DISABLE_PROMPTS=1 ./google-cloud-sdk/install.sh
+# Adding the package path to local
+ENV PATH $PATH:/google-cloud-sdk/bin
+
+# Adding the configuration file to download the custom package
+RUN npm config set @isin-blockchain:registry https://gitlab-premium.supsi.ch/api/v4/projects/12/packages/npm/
+RUN npm config set -- '//gitlab-premium.supsi.ch/api/v4/projects/12/packages/npm/:_authToken' "$(cat /unece-cotton/cloud_functions/credentials/gitlab_read_token)"
+
+# Terraform
+RUN apt-get update && apt-get install -y gnupg software-properties-common curl
+RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
+RUN apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+RUN apt-get update && apt-get install terraform
+RUN terraform -install-autocomplete
+

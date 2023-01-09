@@ -1,0 +1,50 @@
+{
+    "name": "@blockchain-lib/supply-chain-mgmt",
+    "version": "1.0.12",
+    "description": "A general purpose library for blockchain projects",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab-core.supsi.ch/dti-isin/giuliano.gremlich/blockchain/one_lib_to_rule_them_all.git"
+    },
+    "publishConfig": {
+        "registry": "https://gitlab-core.supsi.ch/api/v4/projects/230/packages/npm/",
+        "tag": "latest"
+    },
+    "scripts": {
+        "build": "rm -r dist && npx tsc",
+        "test": "jest",
+        "run-dev-index": "npx ts-node __dev__/index.dev.ts",
+        "semantic-release": "semantic-release"
+    },
+    "author": "ISIN Blockchain team",
+    "license": "MIT",
+    "devDependencies": {
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/gitlab": "^9.4.1",
+        "@semantic-release/npm": "^9.0.1",
+        "@types/jest": "^27.4.1",
+        "@types/node-fetch": "^2.6.2",
+        "semantic-release": "^19.0.4",
+        "semantic-release-monorepo": "^7.0.5"
+    },
+    "dependencies": {
+        "@aws-sdk/client-dynamodb": "^3.121.0",
+        "@ethersproject/providers": "^5.6.4",
+        "@pinata/sdk": "^1.1.26",
+        "dotenv": "^16.0.0",
+        "eth-crypto": "^2.3.0",
+        "ethers": "^5.6.1",
+        "jest": "^27.5.1",
+        "jest-ts-auto-mock": "^2.1.0",
+        "moment": "^2.29.3",
+        "mongodb": "^4.7.0",
+        "nanoid": "^3.3.4",
+        "netlify-cli": "^10.10.2",
+        "node-fetch": "^2.6.1",
+        "ts-auto-mock": "^3.5.0",
+        "ts-jest": "^27.1.4",
+        "ttypescript": "^1.5.13"
+    }
+}

@@ -1,0 +1,5 @@
+FROM node:14.17.3-alpine
+RUN apk add curl
+
+# Necessary for @openapitools/openapi-generator-cli
+RUN apk add openjdk8-jre

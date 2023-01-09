@@ -1,0 +1,10 @@
+.SearchBarContainer{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 5px;
+  .SearchBar {
+    width: 300px;
+  }
+}

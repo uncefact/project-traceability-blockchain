@@ -1,0 +1,126 @@
+image: docker:latest
+services:
+  - docker:dind
+
+stages:
+  - build-1
+  - build-2
+  - deploy
+
+build-backend-master:
+  stage: build-1
+  only:
+    - master
+  script:
+    # Build the Java application
+    - docker build -t gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:lastbuiltMaster ./backend
+    # Extract the OpenApi Spefications
+    - docker cp $(docker create --rm gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:lastbuiltMaster):/unece-tracking-openapi.json ./clients/unece-tracking-openapi.json
+    # Push a temporary image that will be tagged as latest if no issues are found
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab-premium.supsi.ch:5050
+    - docker push gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:lastbuiltMaster
+  artifacts:
+    paths:
+      - clients/unece-tracking-openapi.json
+
+
+build-backend-dev:
+  stage: build-1
+  only:
+    - dev
+  script:
+    # Build the Java application
+    - docker build -t gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:lastbuiltDev ./backend
+    # Extract the OpenApi Spefications
+    - docker cp $(docker create --rm gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:lastbuiltDev):/unece-tracking-openapi.json ./clients/unece-tracking-openapi.json
+    # Push a temporary image that will be tagged as latest if no issues are found
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab-premium.supsi.ch:5050
+    - docker push gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:lastbuiltDev
+  artifacts:
+    paths:
+      - clients/unece-tracking-openapi.json
+
+#build-contracts:
+#  stage: build-1
+#  only:
+#    - master
+#    - dev
+#  script:
+#    - docker build -t contract_compiler ./blockchain
+#    - mkdir -p blockchain/build/contracts-ts/
+#    - docker cp $(docker create --rm contract_compiler):/app/build/contracts-ts blockchain/build/
+#  artifacts:
+#    paths:
+#      - blockchain/build/contracts-ts/**
+
+build-frontend:
+  stage: build-2
+  only:
+    - master
+  script:
+    # Generate the Typescript Client and compile it to Js
+    - docker run --rm -v "${PWD}/clients:/local" openapitools/openapi-generator-cli:v5.3.1 generate -i /local/unece-tracking-openapi.json -g typescript-fetch -c /local/config.json -o /local/unece-cotton-fetch
+    - docker build -t client_compiler ./clients
+    # Move the Typescript Client where it can be accessed by the frontend
+    - mkdir -p ./frontend/clients
+    - docker cp $(docker create --rm client_compiler):/app ./frontend/clients/unece-cotton-fetch
+    # Move the Typescript contracts in the folder of the frontend
+#    - mv blockchain/build/contracts-ts frontend/src/contracts
+    # Build the frontend
+    - docker build -t gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:lastbuiltMaster ./frontend
+    # Push a temporary image that will be tagged as latest if no issues are found
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab-premium.supsi.ch:5050
+    - docker push gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:lastbuiltMaster
+
+build-frontend-dev:
+  stage: build-2
+  only:
+    - dev
+  script:
+    # Generate the Typescript Client and compile it to Js
+    - docker run --rm -v "${PWD}/clients:/local" openapitools/openapi-generator-cli:v5.3.1 generate -i /local/unece-tracking-openapi.json -g typescript-fetch -c /local/config.json -o /local/unece-cotton-fetch
+    - docker build -t client_compiler ./clients
+    # Move the Typescript Client where it can be accessed by the frontend
+    - mkdir -p ./frontend/clients
+    - docker cp $(docker create --rm client_compiler):/app ./frontend/clients/unece-cotton-fetch
+    # Move the Typescript contracts in the folder of the frontend
+#    - mv blockchain/build/contracts-ts frontend/src/contracts
+    # Build the frontend
+    - docker build -f ./frontend/Dockerfile_Dev -t gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:lastbuiltDev ./frontend
+    # Push a temporary image that will be tagged as latest if no issues are found
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab-premium.supsi.ch:5050
+    - docker push gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:lastbuiltDev
+
+deploy-prod-master:
+  stage: deploy
+  only:
+    - master
+  script:
+    # Builds and tests were good, so we can tag all the images as latest
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab-premium.supsi.ch:5050
+    # Backend
+    - docker pull gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:lastbuiltMaster
+    - docker tag gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:lastbuiltMaster gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:latest
+    - docker push gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:latest
+    # Frontend
+    - docker pull gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:lastbuiltMaster
+    - docker tag gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:lastbuiltMaster gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:latest
+    - docker push gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:latest
+
+deploy-prod-dev:
+  stage: deploy
+  only:
+    - dev
+  script:
+    # Builds and tests were good, so we can tag all the images as latest
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab-premium.supsi.ch:5050
+    # Backend
+    - docker pull gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:lastbuiltDev
+    - docker tag gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:lastbuiltDev gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:dev
+    - docker push gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/backend:dev
+    # Frontend
+    - docker pull gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:lastbuiltDev
+    - docker tag gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:lastbuiltDev gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:dev
+    - docker push gitlab-premium.supsi.ch:5050/dti-isin/unece-cotton/unece-cotton/frontend:dev
+
+

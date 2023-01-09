@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  mysql:
+    image: mysql:5.7
+    command: --max_allowed_packet=20971520
+    environment:
+      MYSQL_DATABASE: unece_tracking
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "13306:3306"

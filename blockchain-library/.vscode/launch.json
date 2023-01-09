@@ -1,0 +1,60 @@
+{
+    // Usare IntelliSense per informazioni sui possibili attributi.
+    // Al passaggio del mouse vengono visualizzate le descrizioni degli attributi esistenti.
+    // Per altre informazioni, visitare: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "[Supply Chain Mgmt] Run Jest Tests",
+            "type": "node",
+            "request": "launch",
+            "runtimeArgs": [
+                "--inspect-brk",
+                "${workspaceRoot}/packages/supply-chain-mgmt/node_modules/jest/bin/jest.js",
+                "--runInBand"
+            ],
+            "cwd": "${workspaceRoot}/packages/supply-chain-mgmt",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "port": 9229
+        },
+        {
+            "name": "[Supply Chain Mgmt] Index",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/packages/supply-chain-mgmt",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "run-dev-index"
+            ]
+        },
+        {
+            "name": "[Supply Chain Mgmt] Deploy Contracts",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "deploy-contracts-supply-chain-mgmt"
+            ]
+        },
+        {
+            "name": "Current TS File",
+            "type": "node",
+            "request": "launch",
+            "args": [
+                "${relativeFile}"
+            ],
+            "runtimeArgs": [
+                "--nolazy",
+                "-r",
+                "ts-node/register"
+            ],
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector"
+        }
+    ]
+}

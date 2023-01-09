@@ -1,0 +1,8 @@
+
+.idea/
+clients/unece-tracing-openapi.json
+clients/unece-cotton-fetch/
+
+clients/unece-tracking-openapi.json
+
+frontend/openapi-generator-cli.jar

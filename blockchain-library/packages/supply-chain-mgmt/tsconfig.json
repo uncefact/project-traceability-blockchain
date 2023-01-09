@@ -1,0 +1,35 @@
+{
+    "extends": "@tsconfig/node16/tsconfig.json",
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "module": "commonjs",
+        "target": "ESNext",
+        "noImplicitAny": true,
+        "outDir": "dist",
+        // "sourceMap": true,
+        "inlineSourceMap": true,
+        "esModuleInterop": true,
+        "declaration": true, // This tells TypeScript to emit an .d.ts definitions file along with your compiled JavaScript,
+        "plugins": [
+            {
+                "transform": "ts-auto-mock/transformer",
+                "cacheBetweenTests": false
+            }
+        ]
+    },
+    "include": [
+        "**/*",
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "**/*.spec.ts",
+        "**/*.test.ts",
+        "**/*.dev.ts",
+        "**/__mocks__/**/*.ts",
+        "**/__tests__/**/*.ts",
+        "**/__dev__/*",
+        "ts-config.ts",
+        "jest.config.ts"
+    ]
+}

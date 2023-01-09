@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  unece-frontend:
+    platform: linux/x86_64
+    container_name: "unece-frontend"
+    build:
+      dockerfile: "Dockerfile.dev.yml"
+      context: .
+    volumes:
+      - ..:/frontend:cached
+    command: sleep infinity

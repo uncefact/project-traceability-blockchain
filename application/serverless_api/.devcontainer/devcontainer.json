@@ -1,0 +1,31 @@
+{
+  "name": "Cloud Functions",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "unece-cloud-functions",
+  "workspaceFolder": "/unece-cotton/serverless_api",
+  "settings": {
+    "terminal.integrated.profiles.linux": {
+      "bash": {
+        "path": "bash",
+        "icon": "terminal-bash"
+      }
+    },
+  },
+  "extensions": [
+    "eg2.vscode-npm-script",
+    "dbaeumer.vscode-eslint",
+    "visualstudioexptteam.vscodeintellicode",
+    "aaron-bond.better-comments",
+    "ms-vsliveshare.vsliveshare",
+    "rioukkevin.vscode-git-commit",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "hashicorp.terraform",
+    "rangav.vscode-thunder-client",
+    "cweijan.vscode-mysql-client2",
+    "shd101wyy.markdown-preview-enhanced"
+  ],
+  "remoteUser": "node",
+  "postCreateCommand": "dos2unix /unece-cotton/serverless_api/.devcontainer/post_create.sh && /unece-cotton/serverless_api/.devcontainer/post_create.sh"
+
+}

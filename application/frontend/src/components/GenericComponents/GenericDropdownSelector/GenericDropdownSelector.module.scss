@@ -1,0 +1,27 @@
+.Dropdown{
+  button {
+    width: 100%;
+  }
+}
+.DropdownMenu {
+  width: 250px;
+}
+.InputContainer {
+  width: 240px;
+  margin: auto auto 10px;
+}
+.ButtonContainer{
+  width: 240px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 5px;
+}
+.SpinnerContainer {
+  padding-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,28 @@
+.ModalContainer {
+  width: 400px;
+}
+
+.SuccessImage {
+  background-color: #28a745;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 20rem;
+
+  > svg {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.Message {
+  padding: 2em 2em 2em 2em;
+  background-color: #f8f9fa;
+  display: block;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  color: #555555;
+  letter-spacing: 1px;
+}

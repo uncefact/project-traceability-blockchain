@@ -1,0 +1,46 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Local deploy",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cloud_functions/nodejs",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "start"
+            ]
+        },
+        {
+            "name": "GCP deploy",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "deploy"
+            ]
+        },
+        {
+            "name": "Run test",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cloud_functions/nodejs",
+            "runtimeExecutable": "npm",
+            "console": "integratedTerminal",
+            "runtimeArgs": [
+                "run",
+                "test"
+            ]
+        },
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}

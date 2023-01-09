@@ -1,0 +1,724 @@
+swagger: '2.0'
+info:
+  title: unece-blockchain-api
+  description: API Gateway for UNECE blockchain
+  version: 1.0.0
+schemes:
+  - "https"
+basePath: "/api"
+host: api-gateway-8ot0fprs.ew.gateway.dev
+
+securityDefinitions:
+  AuthenticationBearer:
+    authorizationUrl: ""
+    flow: "implicit"
+    type: "oauth2"
+    # The value below should be unique
+    x-google-issuer: "unece-auth-manager@adroit-nimbus-275214.iam.gserviceaccount.com"
+    x-google-jwks_uri: "https://www.googleapis.com/robot/v1/metadata/x509/unece-auth-manager@adroit-nimbus-275214.iam.gserviceaccount.com"
+    x-google-audiences: "unece-auth-manager@adroit-nimbus-275214.iam.gserviceaccount.com"
+
+paths:
+  /**:
+    options:
+      summary: Enables CORS
+      operationId: "CORSHandler-options"
+      x-google-backend:
+        address: "${cloud_functions_cors.options.endpoint}"
+      responses:
+        200:
+          description: Success
+
+  /login:
+    post:
+      summary: log the user
+      operationId: "login"
+      x-google-backend:
+        address: "${cloud_functions_login.post.endpoint}"
+      responses:
+        200:
+          description: OK
+
+  /materials:
+    get:
+      summary: Get all materials from chain
+      operationId: "materialRetrieveAll"
+      x-google-backend:
+        address: "${cloud_functions_material_retrieve_all.get.endpoint}"
+        deadline: 120.0
+      security:
+        - AuthenticationBearer: [ ]
+      responses:
+        200:
+          description: OK
+    put:
+      summary: Perform a material update on chain
+      operationId: "materialUpdate"
+      x-google-backend:
+        address: "${cloud_functions_material.put.endpoint}"
+        deadline: 600.0
+      parameters: 
+        - in: body
+          name: material
+          required: true
+          schema: 
+            $ref: '#/definitions/Material'
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+    post:
+      summary: Perform a material store on chain
+      operationId: "materialStore"
+      x-google-backend:
+        address: "${cloud_functions_material.post.endpoint}"
+        deadline: 600.0
+      parameters:
+        - in: body
+          name: material
+          required: true
+          schema:
+            $ref: '#/definitions/Material'
+      security:
+        - AuthenticationBearer: [ ]
+      responses:
+        200:
+          description: OK
+
+  /materials/{id}:
+    post:
+      summary: Perform an adding of a resource reader on chain
+      operationId: "materialAllowRead"
+      x-google-backend:
+        address: "${cloud_functions_material_allow_read.post.endpoint}"
+        deadline: 600.0
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: publicKey
+          in: query
+          required: true
+          type: string
+        - name: ethAddress
+          in: query
+          required: true
+          type: string
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+    get:
+      summary: Get a material from chain
+      operationId: "materialRetrieve"
+      x-google-backend:
+        address: "${cloud_functions_material.get.endpoint}"
+        deadline: 120.0
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+      security:
+        - AuthenticationBearer: [ ]
+      responses:
+        200:
+          description: OK
+
+  /trades:
+    get:
+      summary: Get all trades from chain
+      operationId: "tradeRetrieveAll"
+      x-google-backend:
+        address: "${cloud_functions_trade_retrieve_all.get.endpoint}"
+        deadline: 120.0
+      security:
+        - AuthenticationBearer: [ ]
+      responses:
+        200:
+          description: OK
+    put:
+      summary: Perform a trade update on chain
+      operationId: "tradeUpdate"
+      x-google-backend:
+        address: "${cloud_functions_trade.put.endpoint}"
+        deadline: 600.0
+      parameters:
+        - in: body
+          name: trade
+          required: true
+          schema:
+            $ref: '#/definitions/Trade'
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+    post:
+      summary: Perform a trade store on chain
+      operationId: "tradeStore"
+      x-google-backend:
+        address: "${cloud_functions_trade.post.endpoint}"
+        deadline: 600.0
+      parameters:
+        - in: body
+          name: trade
+          required: true
+          schema:
+            $ref: '#/definitions/Trade'
+      security:
+        - AuthenticationBearer: [ ]
+      responses:
+        200:
+          description: OK
+
+  /trades/{id}:
+    post:
+      summary: Perform an adding of a resource reader on chain
+      operationId: "tradeAllowRead"
+      x-google-backend:
+        address: "${cloud_functions_trade_allow_read.post.endpoint}"
+        deadline: 600.0
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: publicKey
+          in: query
+          required: true
+          type: string
+        - name: ethAddress
+          in: query
+          required: true
+          type: string
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+    get:
+      summary: Get a trade from chain
+      operationId: "tradeRetrieve"
+      x-google-backend:
+        address: "${cloud_functions_trade.get.endpoint}"
+        deadline: 120.0
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+      security:
+        - AuthenticationBearer: [ ]
+      responses:
+        200:
+          description: OK
+
+  /transformations:
+    get:
+      summary: Get all transformations from chain
+      operationId: "transformationRetrieveAll"
+      x-google-backend:
+        address: "${cloud_functions_transformation_retrieve_all.get.endpoint}"
+        deadline: 120.0
+      security:
+        - AuthenticationBearer: [ ]
+      responses:
+        200:
+          description: OK
+    put:
+      summary: Perform a transformation update on chain
+      operationId: "transformationUpdate"
+      x-google-backend:
+        address: "${cloud_functions_transformation.put.endpoint}"
+        deadline: 600.0
+      parameters:
+        - in: body
+          name: transformation
+          required: true
+          schema:
+            $ref: '#/definitions/Transformation'
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+    post:
+      summary: Perform a transformation store on chain
+      operationId: "transformationStore"
+      x-google-backend:
+        address: "${cloud_functions_transformation.post.endpoint}"
+        deadline: 600.0
+      parameters:
+        - in: body
+          name: transformation
+          required: true
+          schema:
+            $ref: '#/definitions/Transformation'
+      security:
+        - AuthenticationBearer: [ ]
+      responses:
+        200:
+          description: OK
+
+  /transformations/{id}:
+    post:
+      summary: Perform an adding of a resource reader on chain
+      operationId: "transformationAllowRead"
+      x-google-backend:
+        address: "${cloud_functions_transformation_allow_read.post.endpoint}"
+        deadline: 600.0
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+        - name: publicKey
+          in: query
+          required: true
+          type: string
+        - name: ethAddress
+          in: query
+          required: true
+          type: string
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+    get:
+      summary: Get a transformation from chain
+      operationId: "transformationRetrieve"
+      x-google-backend:
+        address: "${cloud_functions_transformation.get.endpoint}"
+        deadline: 120.0
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+      security:
+        - AuthenticationBearer: [ ]
+      responses:
+        200:
+          description: OK
+
+  /transformationEvents:
+    post:
+      summary: Store data from transformationEvent json object
+      operationId: "transformationEventStandardStore"
+      x-google-backend:
+        address: "${cloud_functions_transformation_event.post.endpoint}"
+        deadline: 600.0
+      parameters:
+        - in: body
+          name: transformationEvent
+          required: true
+          schema:
+            $ref: '#/definitions/TransformationEvent'
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+
+  /transformationEvents/{eventID}:
+    put:
+      summary: Update transformation and materials from transformationEvent json object
+      operationId: "transformationEventStandardUpdate"
+      x-google-backend:
+        address: "${cloud_functions_transformation_event.put.endpoint}"
+        deadline: 600.0
+      parameters:
+        - in: path
+          name: eventID
+          required: true
+          type: string
+        - in: body
+          name: transformationEvent
+          required: true
+          schema:
+            $ref: '#/definitions/TransformationEvent'
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+    get:
+      summary: Read the json standard object taken from the ipfs
+      operationId: "transformationEventStandardRead"
+      x-google-backend:
+        address: "${cloud_functions_transformation_event.get.endpoint}"
+        deadline: 300.0
+      parameters:
+        - in: path
+          name: eventID
+          required: true
+          type: string
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+
+  /objectEvents/{eventID}:
+    put:
+      summary: Update certificate from objectEvent json object
+      operationId: "objectEventStandardUpdate"
+      x-google-backend:
+        address: "${cloud_functions_object_event.put.endpoint}"
+        deadline: 600.0
+      parameters:
+        - in: path
+          name: eventID
+          required: true
+          type: string
+        - in: body
+          name: objectEvent
+          required: true
+          schema:
+            $ref: '#/definitions/ObjectEvent'
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+    get:
+      summary: Read the json standard object taken from the ipfs
+      operationId: "objectEventStandardRead"
+      x-google-backend:
+        address: "${cloud_functions_object_event.get.endpoint}"
+        deadline: 300.0
+      parameters:
+        - in: path
+          name: eventID
+          required: true
+          type: string
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK   
+          schema:
+            type: string
+
+  /objectEvents:
+    post:
+      summary: Store data from objectEvent json object
+      operationId: "objectEventStandardStore"
+      x-google-backend:
+        address: "${cloud_functions_object_event.post.endpoint}"
+        deadline: 600.0
+      parameters:
+        - in: body
+          name: objectEvent
+          required: true
+          schema:
+            $ref: '#/definitions/ObjectEvent'
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+
+  /transactionEvents/{eventID}:
+    put:
+      summary: Update trade from transactionEvent json object
+      operationId: "transactionEventStandardUpdate"
+      x-google-backend:
+        address: "${cloud_functions_transaction_event.put.endpoint}"
+        deadline: 600.0
+      parameters:
+        - in: path
+          name: eventID
+          required: true
+          type: string
+        - in: body
+          name: transactionEvent
+          required: true
+          schema:
+            $ref: '#/definitions/TransactionEvent'
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+    get:
+      summary: Read the json standard object taken from the ipfs
+      operationId: "transactionEventStandardRead"
+      x-google-backend:
+        address: "${cloud_functions_transaction_event.get.endpoint}"
+        deadline: 300.0
+      parameters:
+        - in: path
+          name: eventID
+          required: true
+          type: string
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK   
+          schema:
+            type: string
+
+  /transactionEvents:
+    post:
+      summary: Store data from transactionEvent json object
+      operationId: "transactionEventStandardStore"
+      x-google-backend:
+        address: "${cloud_functions_transaction_event.post.endpoint}"
+        deadline: 600.0
+      parameters:
+        - in: body
+          name: transactionEvent
+          required: true
+          schema:
+            $ref: '#/definitions/TransactionEvent'
+      security:
+        - AuthenticationBearer: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string          
+
+definitions:
+  Material:
+    type: object
+    properties: 
+      id:
+        type: string
+      ownerAddress:
+        type: string
+      name:
+        type: string
+      productTypes:
+        type: array
+        items:
+          type: string
+
+  Trade:
+    type: object
+    properties: 
+      id:
+        type: string
+      name:
+        type: string
+      processTypes:
+        type: array
+        items:
+          type: string
+      processingStds:
+        type: array
+        items:
+          type: string
+      consigneeCompanyId:
+        type: string
+      ownerAddress:
+        type: string
+      materialsIds:
+        type: array
+        items:
+          type: array
+          items: 
+            type: string
+
+  Transformation:
+    type: object
+    properties: 
+      id:
+        type: string
+      ownerAddress:
+        type: string
+      materialsIds:
+        type: array
+        items:
+          type: array
+          items: 
+            type: string 
+      materialOutId:
+        type: string  
+      name:
+        type: string
+      startDate:
+        type: string
+        format: date-time
+      endDate:
+        type: string
+        format: date-time
+      processTypes:
+        type: array
+        items:
+          type: string
+      processingStds:
+        type: array
+        items:
+          type: string
+
+  Item:
+    type: object
+    properties:
+      itemID: 
+        type: string
+      name:
+        type: string
+
+  Quantity:
+    type: object
+    properties:
+      productClass: 
+        type: string
+      quantity:
+        type: string
+      uom:
+        type: string
+
+  Agency:
+    type: object
+    properties:
+      partyID:
+        type: string
+      name:
+        type: string
+
+  Certification:
+    type: object
+    properties:
+      certificateID: 
+        type: string
+      referenceStandard:
+        type: string
+      evidenceURL:
+        type: string
+      criteriaList:
+        type: array
+        items:  
+          type: string
+      assessmentLevel:
+        type: string
+      responsibleAgency:
+        $ref: '#/definitions/schemas/Agency'
+
+  TransformationEvent:
+    type: object
+    properties: 
+      outputItemList:
+        type: array
+        items:
+          $ref: '#/definitions/schemas/Item'
+      inputItemList:
+        type: array
+        items:
+          $ref: '#/definitions/schemas/Item'
+      inputQuantityList:
+        type: array
+        items:
+          $ref: '#/definitions/schemas/Quantity'
+      outputQuantityList:
+        type: array
+        items:
+          $ref: '#/definitions/schemas/Quantity'
+      eventType:
+        type: string
+      eventTime:
+        type: string
+      actionCode:
+        type: string
+      dispositionCode:
+        type: string
+      businessStepCode:
+        type: string
+      readPointId:
+        type: string
+      locationId:
+        type: string
+      certification:
+        $ref: '#/definitions/schemas/Certification'
+
+  ObjectEvent:
+    type: object
+    properties: 
+      itemList:
+        type: array
+        items:
+          $ref: '#/definitions/schemas/Item'
+      quantityList:
+        type: array
+        items:
+          $ref: '#/definitions/schemas/Item'
+      eventType:
+        type: string
+      eventTime:
+        type: string
+      actionCode:
+        type: string
+      dispositionCode:
+        type: string
+      businessStepCode:
+        type: string
+      readPointId:
+        type: string
+      locationId:
+        type: string
+      certification:
+        $ref: '#/definitions/schemas/Certification'
+
+  TransactionEvent:
+    type: object
+    properties: 
+      sourceParty:
+        $ref: '#/definitions/schemas/Agency'
+      destinationParty:
+        $ref: '#/definitions/schemas/Agency'
+      transaction: 
+        type: object
+        properties:
+          type:
+            type: string
+          identifier:
+            type: string
+          documentUrl:
+            type: string
+      itemList:
+        type: array
+        items:
+          $ref: '#/definitions/schemas/Item'
+      quantityList:
+        type: array
+        items:
+          $ref: '#/definitions/schemas/Quantity'
+      eventType:
+        type: string
+      eventTime:
+        type: string
+      actionCode:
+        type: string
+      dispositionCode:
+        type: string
+      businessStepCode:
+        type: string
+      readPointId:
+        type: string
+      locationId:
+        type: string
+      certification:
+        $ref: '#/definitions/schemas/Certification' 
+
+        
+

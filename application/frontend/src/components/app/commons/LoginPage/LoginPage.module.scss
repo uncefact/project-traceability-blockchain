@@ -1,0 +1,82 @@
+@import 'src/utils/global';
+
+.ShowPasswordButtonContainer{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  input {
+    margin-top: 7px;
+  }
+  label {
+    font-weight: normal !important;
+    font-size: 16px;
+  }
+}
+
+.LoginFormContainer {
+  label {
+    font-weight: bold;
+  }
+  margin: 0 auto auto;
+  width: 600px;
+  .UsernameFormGroup {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 10px;
+    text-align: right;
+    div {
+      text-align: left;
+    }
+  }
+  .PasswordFormGroup {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 10px;
+    text-align: right;
+    div {
+      text-align: left;
+    }
+
+    .ShowPassword {
+      cursor: pointer;
+      border-radius: 0 .25rem .25rem 0;
+    }
+  }
+
+  .LoginForm {
+    margin-top: 2rem;
+  }
+}
+.SubmitButton {
+  width: 100%;
+}
+.Center {
+  //padding-top: 30vh;
+  //justify-content: flex-end;
+  z-index: -1;
+  //position: fixed;
+  top: 0;
+  opacity: 0.8;
+  margin: 0 auto auto;
+  .Image {
+    max-width: 100%;
+  }
+}
+@media (max-width: 1224px) {
+  width: 80vw;
+  .UsernameFormGroup {
+    grid-template-columns: 1fr;
+  }
+  .PasswordFormGroup {
+    grid-template-columns: 1fr;
+  }
+  .Center {
+    .Image {
+      max-width: 70%;
+    }
+  }
+  .LoginForm {
+    width: 90%;
+    margin: auto;
+  }
+}

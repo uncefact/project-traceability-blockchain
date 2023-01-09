@@ -1,0 +1,31 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.224.2/containers/java-8
+{
+    "name": "Java 8",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "unece-backend",
+    "workspaceFolder": "/workspace",
+  
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+      "java.home": "/docker-java-home",
+      "java.configuration.runtimes": [{
+        "default": true,
+        "name": "JavaSE-1.8",
+        "path": "/usr/local/sdkman/candidates/java/current"
+      }]
+    },
+  
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+      "GabrielBB.vscode-lombok",
+      "cweijan.vscode-mysql-client2",
+      "vscjava.vscode-java-pack"
+    ],
+  
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+  
+    // Use 'postCreateCommand' to run commands after the container is created.
+     "postCreateCommand": "mvn dependency:resolve",
+  }

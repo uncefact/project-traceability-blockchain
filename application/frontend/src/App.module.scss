@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+  display: flex;
+}
+.SidebarContainer {
+  z-index: 10;
+}
+.ContentContainer {
+  //margin-top: 1vh;
+  margin-left: 25rem;
+  position: relative;
+  width: 100%;
+  .Content {
+    position: absolute;
+    width: 100%;
+  }
+}
+.FullWidth {
+  margin-left: 0;
+}
+.TabletOrMobile {
+  margin-left: 0 !important;
+  margin-top: 4rem !important;
+}
+

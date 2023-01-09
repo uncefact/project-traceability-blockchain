@@ -1,0 +1,4 @@
+**/node_modules
+**/api-docs.json
+**/openapitools.json
+**/clients

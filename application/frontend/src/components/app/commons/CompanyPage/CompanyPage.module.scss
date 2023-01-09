@@ -1,0 +1,141 @@
+@import "src/utils/global";
+
+.Container {
+  width: 70%;
+  margin: 0 auto;
+  h2 {
+    text-align: left;
+  }
+}
+
+.Header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.Form {
+  margin: auto;
+  text-align: left;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  row-gap: 5px;
+  grid-template-areas:
+    "name code"
+    "state country"
+    "city zip"
+    "address1 address2"
+    "latitude longitude"
+    "sector website"
+    "confirm confirm"
+;
+
+  .NameArea {
+    grid-area: name;
+  }
+  .CodeArea {
+    grid-area: code;
+  }
+  .StateArea {
+    grid-area: state;
+  }
+  .CountryArea {
+    grid-area: country;
+  }
+  .CityArea {
+    grid-area: city;
+  }
+  .ZipArea {
+    grid-area: zip;
+  }
+  .Address1Area {
+    grid-area: address1;
+  }
+  .Address2Area {
+    grid-area: address2;
+  }
+  .LatitudeArea {
+    grid-area: latitude;
+  }
+  .LongitudeArea {
+    grid-area: longitude;
+  }
+  .SectorArea {
+    grid-area: sector;
+  }
+  .WebsiteArea {
+    grid-area: website;
+  }
+
+  .ConfirmArea {
+    grid-area: confirm;
+  }
+  .InviteColleague {
+    grid-area: invite;
+    color: #007bff;
+    font-weight: bold;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-size: medium;
+  }
+
+  .LogoutArea {
+    grid-area: logout;
+    button {
+      width: 100%;
+      align-self: flex-end;
+      margin-bottom: 1rem;
+    }
+  }
+  .ChangePassword {
+    margin-top: 44px;
+    width: 100%;
+  }
+}
+
+
+label {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .Container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1224px) {
+  .Form {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "firstname"
+    "lastname"
+    "email"
+    "password"
+    "newPassword"
+    "confirmPassword"
+    "state"
+    "city"
+    "zip"
+    "phone"
+    "address1"
+    "address2"
+    "confirm"
+    "invite"
+  ;
+
+    .LogoutArea {
+      grid-area: logout;
+      button {
+        width: 100%;
+        align-self: flex-end;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+

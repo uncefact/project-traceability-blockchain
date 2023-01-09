@@ -1,0 +1,67 @@
+package ch.supsi.enums;
+
+import org.springframework.http.HttpStatus;
+
+public enum UneceError {
+
+    INVALID_USERNAME(HttpStatus.BAD_REQUEST),
+    INVALID_PASSWORD(HttpStatus.BAD_REQUEST),
+    USERNAME_ALREADY_TAKEN(HttpStatus.BAD_REQUEST),
+    USER_NOT_FOUND(HttpStatus.NOT_FOUND),
+    USER_INVALID_EMAIL(HttpStatus.BAD_REQUEST),
+    USER_INVALID_ID(HttpStatus.BAD_REQUEST),
+    USER_EMAIL_ALREADY_REGISTERED(HttpStatus.CONFLICT),
+    INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR),
+    UNAUTHORIZED(HttpStatus.UNAUTHORIZED),
+    FORBIDDEN(HttpStatus.FORBIDDEN),
+    METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED),
+    NOT_YET_IMPLEMENTED(HttpStatus.NOT_IMPLEMENTED),
+    INVALID_VALUE(HttpStatus.BAD_REQUEST),
+    PARAMETER_MISSING(HttpStatus.BAD_REQUEST),
+    UNRECOGNIZED_PARAMETER(HttpStatus.BAD_REQUEST),
+    UNRECOGNIZED_CAPABILITY(HttpStatus.BAD_REQUEST),
+
+    COMPANY_INVALID_ID(HttpStatus.BAD_REQUEST),
+    COMPANY_INVALID_NAME(HttpStatus.BAD_REQUEST),
+    COMPANY_ALREADY_EXISTING(HttpStatus.BAD_REQUEST),
+    COMPANY_NOT_FOUND(HttpStatus.NOT_FOUND),
+    COMPANY_LOGO_INVALID_FORMAT(HttpStatus.NOT_ACCEPTABLE),
+    COMPANY_LOGO_INVALID_FILE(HttpStatus.BAD_REQUEST),
+    COMPANY_LOGO_NOT_FOUND(HttpStatus.NOT_FOUND),
+
+    TOKEN_INVALID_TOKEN(HttpStatus.BAD_REQUEST),
+    TOKEN_NOT_FOUND(HttpStatus.NOT_FOUND),
+    TOKEN_EXPIRED(HttpStatus.BAD_REQUEST),
+    TOKEN_ALREADY_REDEEMED(HttpStatus.UNAUTHORIZED),
+
+    DOCUMENT_INVALID_FILE(HttpStatus.BAD_REQUEST),
+    DOCUMENT_INVALID_ID(HttpStatus.BAD_REQUEST),
+    DOCUMENT_NOT_FOUND(HttpStatus.NOT_FOUND),
+    DOCUMENT_ALREADY_APPROVED(HttpStatus.CONFLICT),
+
+    GENERICFILE_INVALID_FILE(HttpStatus.BAD_REQUEST),
+    GENERICFILE_FILE_UPLOAD_ERROR(HttpStatus.INTERNAL_SERVER_ERROR),
+    GENERICFILE_FILE_NOT_FOUND(HttpStatus.NOT_FOUND),
+
+    TRANSACTION_NOT_FOUND(HttpStatus.NOT_FOUND),
+
+    MATERIAL_INCOMPATIBLE(HttpStatus.BAD_REQUEST),
+
+    CERTIFICATION_TYPE_NOT_FOUND(HttpStatus.BAD_REQUEST);
+
+
+
+    private final HttpStatus httpStatus;
+
+    UneceError(HttpStatus httpStatus) {
+        this.httpStatus = httpStatus;
+    }
+
+    public String getMessage() {
+        return this.name();
+    }
+
+    public HttpStatus getHttpStatus() {
+        return httpStatus;
+    }
+}

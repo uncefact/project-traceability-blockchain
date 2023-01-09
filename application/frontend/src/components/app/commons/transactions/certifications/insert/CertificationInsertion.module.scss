@@ -1,0 +1,140 @@
+@import "src/utils/global";
+
+.Container {
+  width: 95%;
+  margin: 0 auto;
+  h2 {
+    text-align: left;
+    padding-bottom: 20px;
+  }
+}
+
+.Form {
+  margin: auto;
+  text-align: left;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  row-gap: 5px;
+  grid-template-areas:
+    "companyName companyInfo"
+    "userEmail userInfo"
+    "verificationType doc"
+    "refStandard assessmentType"
+    ". verifierName"
+    ". verifierEmail"
+    "productCategories outputMaterials"
+    "shipments shipments"
+    "validFrom validUntil"
+    "certificateID certificateID"
+    "material material"
+    "notes notes"
+    "confirm confirm"
+;
+  label {
+    font-weight: bold !important;
+    font-size: 22px;
+  }
+
+  .Select {
+    flex: 1 1 auto;
+  }
+
+  .CompanyNameArea {
+    grid-area: companyName;
+  }
+  .CompanyInfoArea {
+    grid-area: companyInfo;
+  }
+  .UserEmailArea {
+    grid-area: userEmail;
+  }
+  .UserInfoArea {
+    grid-area: userInfo;
+  }
+  .DocumentTypeArea {
+    grid-area: verificationType;
+  }
+  .DocumentArea {
+    grid-area: doc;
+  }
+  .DocumentAreaDivider{
+    text-align: center;
+    padding: 10px;
+  }
+  .ValidFromArea {
+    grid-area: validFrom;
+  }
+  .ValidUntilArea {
+    grid-area: validUntil;
+  }
+  .ReferencedStandardArea {
+    grid-area: refStandard;
+  }
+  .AssessmentTypeArea {
+    grid-area: assessmentType;
+  }
+  .VerifierNameArea {
+    grid-area: verifierName;
+  }
+  .VerifierEmailArea {
+    grid-area: verifierEmail;
+  }
+  .ProductCategoriesArea {
+    grid-area: productCategories;
+  }
+  .OutputMaterialsArea {
+    grid-area: outputMaterials;
+  }
+  .ShipmentsArea {
+    grid-area: shipments;
+  }
+  .CertificateIDArea {
+    grid-area: certificateID;
+  }
+  .MaterialArea {
+    grid-area: material;
+  }
+  .NotesArea {
+    grid-area: notes;
+  }
+
+  .ConfirmArea {
+    grid-area: confirm;
+    text-align: left;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .Container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1224px) {
+  .Form {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "companyName"
+    "companyInfo"
+    "userEmail"
+    "userInfo"
+    "verificationType"
+    "doc"
+    "refStandard"
+    "assessmentType"
+    "verifierName"
+    "verifierEmail"
+    "productCategories"
+    "shipments"
+    "validFrom"
+    "validUntil"
+    "certificateID"
+    "material"
+    "notes"
+    "confirm"
+  ;
+  }
+}
